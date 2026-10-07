@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Studio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: #111318;
+            color: #f5f5f5;
+            padding: 55px 25px;
+        }
+
+        .page-header {
+            max-width: 1200px;
+            margin: 0 auto 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+        }
+
+        .heading small {
+            color: #ffb84d;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .heading h1 {
+            font-size: clamp(35px, 5vw, 62px);
+            line-height: 1;
+            margin-top: 10px;
+        }
+
+        .heading p {
+            color: #9da1ad;
+            margin-top: 14px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .count {
+            color: #8e93a0;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            position: relative;
+            background: #1a1d24;
+            border: 1px solid #2b2f39;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform .3s ease, border-color .3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #ffb84d;
+        }
+
+        .visual {
+            height: 230px;
+            background: #242832;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .visual::after {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: #ffb84d;
+            opacity: .12;
+            filter: blur(8px);
+        }
+
+        .visual img {
+            width: 82%;
+            height: 82%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            transition: transform .35s ease;
+        }
+
+        .card:hover .visual img {
+            transform: scale(1.08) rotate(3deg);
+        }
+
+        .tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            background: #ffb84d;
+            color: #17191e;
+            padding: 7px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .details {
+            padding: 20px;
+        }
+
+        .details h2 {
+            font-size: 21px;
+            margin-bottom: 9px;
+        }
+
+        .details p {
+            color: #999eaa;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 42px;
+        }
+
+        .action {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #2b2f39;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffb84d;
+        }
+
+        .buy-btn {
+            border: 0;
+            background: #f5f5f5;
+            color: #17191e;
+            padding: 10px 15px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .buy-btn:hover {
+            background: #ffb84d;
+            transform: scale(1.04);
+        }
+
+        @media (max-width: 950px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-header {
+                align-items: start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 35px 15px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .visual {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="page-header">
+        <div class="heading">
+            <small>NEW COLLECTION</small>
+            <h1>Sneaker Studio</h1>
+            <p>
+                A curated selection of everyday sneakers built for comfort,
+                movement and modern street style.
+            </p>
+        </div>
+
+        <div class="count">06 PRODUCTS</div>
+    </header>
+
+    <main class="products">
+
+        <article class="card">
+            <div class="visual">
+                <span class="tag">SPORT</span>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700"
+                     alt="Red running shoe">
+            </div>
+            <div class="details">
+                <h2>Velocity Red</h2>
+                <p>Lightweight sneakers designed for active everyday movement.</p>
+                <div class="action">
+                    <span class="price">$119</span>
+                    <button class="buy-btn">Explore</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="visual">
+                <span class="tag">CASUAL</span>
+                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=700"
+                     alt="Casual sneakers">
+            </div>
+            <div class="details">
+                <h2>Street Classic</h2>
+                <p>A simple everyday pair made for city walks and casual outfits.</p>
+                <div class="action">
+                    <span class="price">$89</span>
+                    <button class="buy-btn">Explore</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="visual">
+                <span class="tag">LIFESTYLE</span>
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=700"
+                     alt="Modern sneaker">
+            </div>
+            <div class="details">
+                <h2>Metro Flex</h2>
+                <p>Modern footwear combining a clean look with lightweight comfort.</p>
+                <div class="action">
+                    <span class="price">$135</span>
+                    <button class="buy-btn">Explore</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="visual">
+                <span class="tag">PREMIUM</span>
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=700"
+                     alt="Brown sneaker">
+            </div>
+            <div class="details">
+                <h2>Heritage Walk</h2>
+                <p>Minimal premium footwear with a timeless everyday design.</p>
+                <div class="action">
+                    <span class="price">$149</span>
+                    <button class="buy-btn">Explore</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="visual">
+                <span class="tag">TRAINING</span>
+                <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?w=700"
+                     alt="Athletic sneaker">
+            </div>
+            <div class="details">
+                <h2>Power Move</h2>
+                <p>Supportive training shoes for workouts and active routines.</p>
+                <div class="action">
+                    <span class="price">$109</span>
+                    <button class="buy-btn">Explore</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="visual">
+                <span class="tag">ESSENTIAL</span>
+                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=700"
+                     alt="White sneakers">
+            </div>
+            <div class="details">
+                <h2>Cloud White</h2>
+                <p>A clean white sneaker with a simple shape and lightweight feel.</p>
+                <div class="action">
+                    <span class="price">$99</span>
+                    <button class="buy-btn">Explore</button>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+</body>
+</html>
